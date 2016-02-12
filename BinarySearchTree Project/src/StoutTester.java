@@ -3,7 +3,7 @@ public class StoutTester {
 
 	public static void main(String[] args)
 	{
-		String[] words = {"One", "Two", "Three", "Four", "Five",
+		String[] words = { "Two", "Three", "Four", "Five",
 				"Six", "Seven", "Eight", "Nine", "Ten"};
 		MyBST<String> bst = new MyBST<String>();
 
