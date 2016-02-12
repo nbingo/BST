@@ -14,11 +14,13 @@
 public class MyBST <E>
 {
 	private TreeNode root;  // holds the root of this BST
+	private int 	 size;	// holds the size of this BST
 
 	// Constructor: creates an empty BST.
 	public MyBST()
 	{
 		root = null;
+		size = 0;
 	}
 
 	// Returns true if this BST contains value; otherwise returns false.
@@ -34,6 +36,7 @@ public class MyBST <E>
 		if (contains(value))
 			return false;
 		root = add(root, value);
+		size++;
 		return true;
 	}
 
@@ -44,9 +47,14 @@ public class MyBST <E>
 		if (!contains(value))
 			return false;
 		root = remove(root, value);
+		size--;
 		return true;
 	}
 
+	public int getSize()
+	{
+		return size;
+	}
 	// Returns a string representation of this BST.
 	@Override
 	public String toString()
