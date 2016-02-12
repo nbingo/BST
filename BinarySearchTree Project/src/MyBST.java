@@ -111,43 +111,9 @@ public class MyBST <E>
 		return node;
 	}
 
-	// Removes value from the BST rooted at node.
-	// Returns the root of the new tree.
-	// Precondition: the tree rooted at node contains value.
-//	private TreeNode remove(TreeNode node, Object value)
-//	{
-//		int compared = ((Comparable<E>)node.getValue()).compareTo((E)value);
-//		if(compared < 0) //value is greater than node
-//		{
-//			currentParent = node;
-//			currentDirection = 1;
-//			remove(node.getRight(), value);
-//		}
-//		else if (compared > 0)
-//		{
-//			currentParent = node;
-//			currentDirection = -1;
-//			remove(node.getLeft(), value);
-//		}
-//		else
-//		{
-//			if(node.equals(root))
-//				root = removeRoot(node);
-//			else
-//			{
-//				TreeNode newChild = removeRoot(node);
-//				if (currentDirection == -1)
-//					currentParent.setLeft(newChild);
-//				else
-//					currentParent.setRight(newChild);
-//			}
-//		}
-//		return node;
-//	}
-
 	 private TreeNode remove(TreeNode root, Object value) {
-	        if (root == null) return null;
-
+	        if (root == null) 
+	        	return null;
 	        int cmp = ((Comparable<E>)value).compareTo((E)root.getValue());
 	        if      (cmp < 0) 
 	        	root.setLeft(remove(root.getLeft(),  value));
@@ -159,33 +125,16 @@ public class MyBST <E>
 	            	return root.getLeft();
 	            else if (root.getLeft()  == null) 
 	            	return root.getRight();
-	            TreeNode temp = root;
-	            root = getMin(temp.getRight());
-	            root.setRight(removeMin(temp.getRight()));
-	            root.setLeft(temp.getLeft());
+	            else
+	            {
+		            TreeNode temp = root;
+		            root = getMin(temp.getRight());
+		            root.setRight(removeMin(temp.getRight()));
+		            root.setLeft(temp.getLeft());
+	            }
 	        } 
 	        return root;
 	    } 
-	// Removes the root of the BST rooted at root
-	// replacing it with the smallest node from the right subtree.
-	// Returns the root of the new tree.
-//	private TreeNode removeRoot(TreeNode root)
-//	{
-//		if(root == null)
-//			return null;
-//		else if (root.getRight() == null)
-//			return root.getLeft();
-//		else if (root.getLeft() == null)
-//			return root.getRight();
-//		else
-//		{
-//			TreeNode temp = root.getLeft();
-//			root = getMin(root.getRight());
-//			root.setRight(removeMin(root.getRight()));
-//			root.setLeft(temp);
-//		}
-//		return root;
-//	}
 
 	private TreeNode removeMin(TreeNode root)
 	{
