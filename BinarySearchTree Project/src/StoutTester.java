@@ -14,6 +14,7 @@ public class StoutTester {
 			if(bst.add(word))
 				System.out.println("*** Added a duplicate value ***");
 			System.out.println(bst);
+			System.out.printf("Size: %d\n", bst.getSize());
 		}
 
 
@@ -23,7 +24,7 @@ public class StoutTester {
 			System.out.println("Removed: " + word + " " + bst.remove(word));
 			if(bst.remove(word))
 				System.out.println("*** Removed a non-existent value ***");
-			System.out.println(bst);
+			System.out.println(bst + "\nSize: " + bst.getSize());
 		}
 
 	}
